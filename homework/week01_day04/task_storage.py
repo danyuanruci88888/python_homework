@@ -1,4 +1,4 @@
-import json 
+import json
 
 def load_tasks():
     try:
@@ -21,9 +21,3 @@ def add_task(tasks,title):
 def show_tasks(tasks):
     for task in tasks:
         print(task["title"],task["status"])
-
-tasks = load_tasks()
-add_task(tasks,"学习JSON文件保存")
-save_tasks(tasks)
-show_tasks(tasks)
-print("保存完成")
