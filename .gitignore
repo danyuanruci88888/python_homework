@@ -35,3 +35,4 @@ wheels/
 .DS_Store
 Thumbs.db
 tasks.json
+.venv/
