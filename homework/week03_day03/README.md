@@ -161,4 +161,4 @@ JOIN users ON tasks.user_id = users.id;
 `ROLLBACK` 必须在 `COMMIT` 之前使用。一旦 `COMMIT` 确认生效，数据就真的改了，再想恢复我只能手动写 UPDATE 改回去。
 
 ### 解决 LIKE 空结果问题
-我明白了 `LIKE` 是"包含"的意思，数据里没有 Python 相关任务只是数据问题，SQL 语法本身是正确的。如果我需要看到结果，可以先插入几条带"Python"关键词的测试数据。
+我明白了 `LIKE` 是"包含"的意思，数据里没有 Python 相关任务只是数据问题，SQL 语法本身是正确的。如果我需要看到结果，可以先插入几条带"Python"关键词的测试数据。11
