@@ -1,7 +1,14 @@
+from json import load
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "mysql+pymysql://root:123456@localhost:3306/ai_class?charset=utf8mb4"
+load_dotenv()
+
+password = os.getenv("DATABASE_PASSWORD")
+
+DATABASE_URL = f"mysql+pymysql://root:{password}@localhost:3306/ai_class?charset=utf8mb4"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind = engine , autocommit = False,autoflush = False)
