@@ -1,38 +1,33 @@
 from pydantic import BaseModel
 
 class UserCreate(BaseModel):
-    username:str
-    password:str
+    username: str
+    password: str
 
 class UserResponse(BaseModel):
-    username:str
-    password:str
-
-class UserResponse(BaseModel):
-    id:int
-    username:str
+    id: int
+    username: str
 
     class Config:
         from_attributes = True
-        
-class UserLogin(BaseModel):
-    username:str
-    password:str
 
 class UserLogin(BaseModel):
-    username:str
-    password:str
+    username: str
+    password: str
 
 class Token(BaseModel):
-    access_token:str
-    token_type:str
+    access_token: str
+    token_type: str
+
+class TaskCreate(BaseModel):
+    title: str
+    status: str
 
 class TaskResponse(BaseModel):
-    id:int
-    title:str
-    status:str
-    user_id:int
+    id: int
+    title: str
+    status: str
+    user_id: int
 
     class Config:
         from_attributes = True
-        
