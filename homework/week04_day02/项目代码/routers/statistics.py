@@ -19,9 +19,11 @@ def get_progress(
     # 1. 先查 Redis 缓存
     cached = get_progress_cache(user_id)
     if cached:
+        print(f"[Redis] 命中缓存: user:{user_id}:progress")
         return cached
 
     # 2. 缓存没有，查 MySQL
+    print(f"[MySQL] 缓存未命中，查询数据库: user:{user_id}:progress")
     total = db.query(Task).filter(Task.user_id == user_id).count()
     completed = db.query(Task).filter(
         Task.user_id == user_id,
@@ -37,5 +39,6 @@ def get_progress(
 
     # 3. 把结果写入 Redis，60 秒过期
     set_progress_cache(user_id, result, expire=60)
+    print(f"[Redis] 写入缓存: user:{user_id}:progress = {result}")
 
     return result
