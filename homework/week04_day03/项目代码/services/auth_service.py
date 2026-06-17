@@ -26,5 +26,5 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    logger.info("生成 JWT token")
+    logger.info(f"生成 JWT token，用户 ID: {data.get('sub')}")
     return encoded_jwt
