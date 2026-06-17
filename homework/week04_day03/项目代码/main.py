@@ -17,10 +17,10 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
-logger.info("数据库表创建完成")
+logger.info("数据库表已创建/同步完成")
 
 app.include_router(users_router)
 app.include_router(auth_router)
 app.include_router(tasks_router)
 app.include_router(statistics_router)
-logger.info("路由注册完成")
+logger.info("所有路由已注册完成")
